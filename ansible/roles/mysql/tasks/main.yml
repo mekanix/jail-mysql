@@ -1,0 +1,14 @@
+---
+- name: install mysql packages
+  with_items: "{{ mysql_packages }}"
+  package:
+    name: "{{ item.name }}"
+  notify:
+    - restart mysql
+
+- name: enable mysql
+  template:
+    src: mysql.j2
+    dest: /etc/rc.conf.d/mysql
+  notify:
+    - restart mysql
