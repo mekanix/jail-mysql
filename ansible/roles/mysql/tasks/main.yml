@@ -6,6 +6,13 @@
   notify:
     - restart mysql
 
+- name: configure mysql
+  template:
+    src: server.cnf.j2
+    dest: /usr/local/etc/mysql/conf.d/server.cnf
+  notify:
+    - restart mysql
+
 - name: enable mysql
   template:
     src: mysql.j2
