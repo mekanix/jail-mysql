@@ -20,6 +20,7 @@ basedir                         = /usr/local
 datadir                         = /var/db/mysql
 net_retry_count                 = 16384
 log_error                       = /var/log/mysql/mysqld.err
+max_allowed_packet              = 512M
 # [mysqld] configuration for ZFS
 # From https://www.percona.com/resources/technical-presentations/zfs-mysql-percona-technical-webinar
 # Create separate datasets for data and logs, eg
