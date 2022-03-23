@@ -19,3 +19,19 @@
     dest: /etc/rc.conf.d/mysql
   notify:
     - restart mysql
+
+- name: start mysql
+  service:
+    name: mysql-server
+    state: started
+    enabled: yes
+    
+- name: create mysql user for all hosts
+  mysql_user:
+    name: "{{ mysql_user }}"
+    host: "{{ mysql_host }}"
+    password: "{{ mysql_password }}"
+    priv: "*.*:ALL,GRANT"  
+    login_unix_socket: /var/run/mysql/mysql.sock
+    login_user: root
+    login_password: ""
