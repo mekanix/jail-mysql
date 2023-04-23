@@ -1,6 +1,7 @@
 ---
+maria_version: 106
 mysql_packages:
-  - name: mariadb105-server
+  - name: "mariadb{{ maria_version }}-server"
   - name: "{{ python_prefix }}-pymysql"
 
 mysql_user: root
